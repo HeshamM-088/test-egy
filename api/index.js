@@ -11,10 +11,11 @@ const event_router = require("../routes/events/eventsr");
 const cart_router = require("../routes/cart/cartr");
 const product_router = require("../routes/products/productr");
 
-require("dotenv").config({ path: "./.env" });
+require("dotenv").config();
+
 const DB_URL = process.env.DB_URL;
 
-const PORT = 7000;
+app.use(express.json());
 
 app.use(
   cors({
@@ -23,7 +24,6 @@ app.use(
     credentials: true,
   })
 );
-app.use(express.json());
 mongoose
   .connect(DB_URL)
   .then(() => {
