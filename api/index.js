@@ -63,4 +63,4 @@ app.use((err, req, res, next) => {
   });
 });
 
-module.exports = (req, res) => app(req, res);
+module.exports = app;
